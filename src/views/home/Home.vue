@@ -5,22 +5,26 @@
 </template>
 <script>
   import NavBar from 'components/common/navbar/NavBar'
-  import {getHomeMultidata} from "network/home.js"
+  import {getHomeMultidata} from 'network/home.js'
+  import {Swiper, SwiperItem} from 'components/common/swiper/index'
 
   export default {
     name: "Home",
     components: {
-      NavBar
+      NavBar,
+      Swiper,
+      SwiperItem
     },
     data() {
       return {
-        result :null
+        banners : [],
+        recommend : []
       }
     },
     created() {
       getHomeMultidata().then(res => {
-        console.log(res);
-        this.result = res;
+        this.banners = res.data.banner.list;
+        this.recommend = res.data.recommend.list;
       })
     }
   }
