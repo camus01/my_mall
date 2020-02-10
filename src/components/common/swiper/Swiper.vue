@@ -14,7 +14,6 @@
 </template>
 
 <script>
-
 	export default {
 		name: "Swiper",
     props: {
